@@ -1,7 +1,3 @@
-# Lisk
-
-Lisk is a next generation crypto-currency and decentralized application platform, written entirely in JavaScript. For more information please refer to our website: https://shift.io/.
-
 ## Installation
 
 **NOTE:** The following is applicable to: **Ubuntu 14.04 (LTS) - x86_64**.
@@ -16,9 +12,14 @@ sudo apt-get install curl build-essential python
 Install PostgreSQL (version 9.5.2):
 
 ```
-curl -sL "https://downloads.shift.io/scripts/setup_postgresql.Linux" | bash -
-sudo -u postgres createuser --createdb --password $USER
-createdb shift_test
+sudo apt-get purge -y postgres*
+sudo sh -c 'echo \"deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main\" > /etc/apt/sources.list.d/pgdg.list'";
+wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+sudo apt-get update && sudo apt-get install -y postgresql postgresql-contrib libpq-dev
+sudo su postgres
+createuser -d -s -P shift
+createdb -O shift shiftdb
+
 ```
 
 Install Node.js (version 0.12.x) + npm:
@@ -46,34 +47,9 @@ Install node modules:
 npm install
 ```
 
-Install Lisk Node, a specialized version of Node.js used to execute dapps within a virtual machine:
-
-```
-wget https://downloads.shift.io/shift-node/shift-node-Linux-x86_64.tar.gz
-tar -zxvf shift-node-Linux-x86_64.tar.gz
-```
-
-Lisk Node has to be in `[SHIFT_DIR]/nodejs/node`.
-
-Load git submodules ([shift-ui](https://github.com/LiskHQ/shift-ui) and [shift-js](https://github.com/LiskHQ/shift-js)):
-
-```
-git submodule init
-git submodule update
-```
-
-Build the user-interface:
-
-```
-cd public
-npm install
-bower install
-grunt release
-```
-
 ## Launch
 
-To launch Lisk:
+To launch Shift:
 
 ```
 node app.js
@@ -85,47 +61,12 @@ node app.js
 node app.js -p [port] -a [address] -c [config-path]
 ```
 
-## Tests
-
-Before running any tests, please ensure Lisk is configured to run on the same testnet as used by the test-suite.
-
-Replace **config.json** and **genesisBlock.json** with the corresponding files under the **test** directory:
-
-```
-cp test/config.json test/genesisBlock.json .
-```
-
-**NOTE:** The master passphrase for this genesis block is as follows:
-
-```
-wagon stock borrow episode laundry kitten salute link globe zero feed marble
-```
-
-Launch shift (runs on port 4000):
-
-```
-node app.js
-```
-
-Run the test suite:
-
-```
-npm test
-```
-
-Run individual tests:
-
-```
-npm test -- test/lib/accounts.js
-npm test -- test/lib/transactions.js
-```
-
 ## Authors
-
+- Joey <shiftcurrency@gmail.com>
 - Boris Povod <boris@crypti.me>
 - Pavel Nekrasov <landgraf.paul@gmail.com>
 - Sebastian Stupurac <stupurac.sebastian@gmail.com>
-- Oliver Beddows <oliver@shift.io>
+- Oliver Beddows <oliver@lisk.io>
 
 ## License
 
