@@ -41,15 +41,16 @@ Install bower (globally):
 sudo npm install bower -g
 ```
 
-Install node modules:
+Build SHIFT:
 
 ```
-npm install
+git clone -b shift_v4.0.0-testnet https://github.com/shiftcurrency/shift.git
+cd shift && npm install --production
 ```
 
 ## Launch
 
-To launch Shift:
+To launch SHIFT:
 
 ```
 node app.js
