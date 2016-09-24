@@ -3,7 +3,7 @@
     "address": "0.0.0.0",
     "serveHttpAPI": true,
     "serveHttpWallet": true,
-    "version": "4.1.0",
+    "version": "4.2.0",
     "fileLogLevel": "info",
     "logFileName": "logs/shift.log",
     "consoleLogLevel": "log",
@@ -66,5 +66,5 @@
         "masterpassword": "yg1rYpY9br98",
         "autoexec": []
     },
-    "nethash": "434318640adc0eaf826f3b1d0af06667bc5968e4f1b361aaaf1dd04e26d53af3"
+    "nethash": "f06fa6a2cd4216b4a9ede9dea3625cc8eadd3330909323239193537486fb24f5"
 }

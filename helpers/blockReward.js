@@ -2,11 +2,10 @@ var constants = require("./constants.js");
 
 function BlockReward() {
 	var milestones = [
-        100000000,  // Initial reward
-        70000000,  // Milestone 1
-        50000000,  // Milestone 2
-        30000000,  // Milestone 3
-        20000000   // Milestone 4
+        40000000,  // Initial reward
+        30000000,  // Milestone 1
+        20000000,  // Milestone 2
+        10000000,  // Milestone 3
 	];
 
 	// Distance between each milestone

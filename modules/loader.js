@@ -536,7 +536,7 @@ Loader.prototype.onPeerReady = function () {
 			private.isActive = false;
 			if (!private.loaded) return;
 
-			setTimeout(nextLoadBlock, 9 * 1000);
+			setTimeout(nextLoadBlock, 10 * 1000);
 		});
 	});
 
