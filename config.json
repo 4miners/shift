@@ -3,7 +3,7 @@
     "address": "0.0.0.0",
     "serveHttpAPI": true,
     "serveHttpWallet": true,
-    "version": "4.0.0",
+    "version": "4.1.0",
     "fileLogLevel": "info",
     "logFileName": "logs/shift.log",
     "consoleLogLevel": "log",
@@ -29,6 +29,10 @@
         "list": [
             {
                 "ip": "108.61.196.62",
+                "port": 8005
+            },
+            {
+                "ip": "45.32.153.244",
                 "port": 8005
             }
         ],
