@@ -14,7 +14,7 @@ module.exports = {
 	feeStart: 1,
 	feeStartVolume: 10000 * 100000000,
 	fixedPoint : Math.pow(10, 8),
-	forgingTimeOut: 500, // 50 blocks
+	forgingTimeOut: 50, // 50 blocks
 	maxAddressesLength: 208 * 128,
 	maxAmount: 100000000,
 	maxClientConnections: 100,
@@ -30,16 +30,10 @@ module.exports = {
 		distance: 3000000, // Distance between each milestone
 	},
 	signatureExceptions: [
-		"5676385569187187158", // 868797
-		"5384302058030309746", // 869890
-		"9352922026980330230", // 925165
 	],
 	signatureLength: 196,
 	totalAmount: 1000000000000000,
 	unconfirmedTransactionTimeOut: 10800, // 1080 blocks
 	voteExceptions: [
-		"5524930565698900323",  // 20407
-		"11613486949732674475", // 123300
-		"14164134775432642506"  // 123333
 	]
 }

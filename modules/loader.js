@@ -536,7 +536,7 @@ Loader.prototype.onPeerReady = function () {
 			private.isActive = false;
 			if (!private.loaded) return;
 
-			setTimeout(nextLoadBlock, 10 * 1000);
+			setTimeout(nextLoadBlock, 27 * 1000);
 		});
 	});
 
@@ -545,7 +545,7 @@ Loader.prototype.onPeerReady = function () {
 
 		private.loadUnconfirmedTransactions(function (err) {
 			err && library.logger.error("Unconfirmed transactions timer:", err);
-			setTimeout(nextLoadUnconfirmedTransactions, 14 * 1000)
+			setTimeout(nextLoadUnconfirmedTransactions, 31 * 1000)
 		});
 	});
 
@@ -554,7 +554,7 @@ Loader.prototype.onPeerReady = function () {
 
 		private.loadSignatures(function (err) {
 			err && library.logger.error("Signatures timer:", err);
-			setTimeout(nextLoadSignatures, 14 * 1000);
+			setTimeout(nextLoadSignatures, 31 * 1000);
 		});
 	});
 }
