@@ -13,7 +13,7 @@ Install PostgreSQL (version 9.5.2):
 
 ```
 sudo apt-get purge -y postgres*
-sudo sh -c 'echo \"deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main\" > /etc/apt/sources.list.d/pgdg.list'; wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" > /etc/apt/sources.list.d/pgdg.list'; wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
 sudo apt-get update && sudo apt-get install -y postgresql postgresql-contrib libpq-dev
 sudo su postgres
 createuser -d -s -P shift
@@ -43,7 +43,7 @@ sudo npm install bower -g
 Build SHIFT:
 
 ```
-git clone -b shift_v4.0.0-testnet https://github.com/shiftcurrency/shift.git
+git clone -b shift_migration https://github.com/shiftcurrency/shift.git
 cd shift && npm install --production
 ```
 
