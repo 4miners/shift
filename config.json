@@ -22,7 +22,7 @@
     },
     "api": {
         "access": {
-            "whiteList": ["0.0.0.0", "127.0.0.1"]
+            "whiteList": ["127.0.0.1"]
         }
     },
     "peers": {
@@ -45,7 +45,7 @@
         "force": false,
         "secret": [],
         "access": {
-            "whiteList": ["0.0.0.0", "127.0.0.1"]
+            "whiteList": ["127.0.0.1"]
         }
     },
     "loading": {
