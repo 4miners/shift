@@ -43,7 +43,7 @@ sudo npm install bower -g
 Build SHIFT:
 
 ```
-git clone -b shift_v4.0.0-testnet https://github.com/shiftcurrency/shift.git
+git clone -b shift_migration https://github.com/shiftcurrency/shift.git
 cd shift && npm install --production
 ```
 
