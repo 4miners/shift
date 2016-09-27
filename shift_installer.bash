@@ -35,21 +35,42 @@ install_prereq() {
 }
 
 add_pg_user_database() {
-    user_exists=$(grep postgres /etc/passwd |wc -l);
-    if [[ $user_exists == 1 ]]; then
-        echo -n "Creating database user..."
-        res=$(sudo -u postgres psql -c "CREATE USER shift WITH PASSWORD 'testing';" 2> /dev/null)
-        res=$(sudo -u postgres psql -tAc "SELECT 1 FROM pg_roles WHERE rolname='shift'" 2> /dev/null)
-        if [[ $res -eq 1 ]]; then
-            echo "done."
-        fi
 
-        echo -n "Creating database..."
-        res=$(sudo -u postgres createdb -O shift shiftdb 2> /dev/null)
-        res=$(sudo -u postgres psql -lqt 2> /dev/null |grep shiftdb |awk {'print $1'} |wc -l)
-        if [[ $res -eq 1 ]]; then
-            echo "done."
+    if start_postgres; then
+        user_exists=$(grep postgres /etc/passwd |wc -l);
+        if [[ $user_exists == 1 ]]; then
+            echo -n "Creating database user..."
+            res=$(sudo -u postgres psql -c "CREATE USER shift WITH PASSWORD 'testing';" 2> /dev/null)
+            res=$(sudo -u postgres psql -tAc "SELECT 1 FROM pg_roles WHERE rolname='shift'" 2> /dev/null)
+            if [[ $res -eq 1 ]]; then
+                echo "done."
+            fi
+
+            echo -n "Creating database..."
+            res=$(sudo -u postgres createdb -O shift shiftdb 2> /dev/null)
+            res=$(sudo -u postgres psql -lqt 2> /dev/null |grep shiftdb |awk {'print $1'} |wc -l)
+            if [[ $res -eq 1 ]]; then
+                echo "done."
+            fi
         fi
+        return 0
+    fi
+
+    return 1;
+}
+
+start_postgres() {
+
+    installed=$(dpkg -l |grep postgresql |grep ii |head -n1 |wc -l);
+    running=$(ps aux |grep "bin\/postgres" |wc -l);
+
+    if [[ $installed -ne 1 ]]; then
+        echo "Postgres is not installed. Install postgres manually before continuing. Exiting."
+        exit 1;
+    fi
+
+    if [[ $running -ne 1 ]]; then
+        /etc/init.d/postgresql start || { echo -n "Could not start postgresql, try to start it manually. Exiting." && exit 1; }
     fi
 
     return 0
